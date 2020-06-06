@@ -25,7 +25,7 @@ a {
     background-size: cover !important;
 }
 .container {
-    width:1024px;
+    width:100%;
     margin: 0 auto;
 }
 
@@ -306,7 +306,6 @@ footer .footer_discl {
         width: 90%;
         height: calc(90vh - 90px);
         margin: 0 auto 0 auto;
-        background-color: orange;
     
         .featured_number {
             font-size: 200px;
@@ -340,6 +339,24 @@ footer .footer_discl {
     background: #98c5e9;
     margin-top:9px;
     padding: 50px 0px;
+
+    .match_tag{
+        padding: 5px 10px;
+        display: inline-block;
+        font-family: 'Righteous';
+
+        &.all-matches{
+            background-color: #0e1731;
+            font-size: 50px;
+            color: #ffffff;
+        }
+
+        &.more-matches{
+            background-color: #ffffff;
+            font-size: 22px;
+            color: #0e1731;
+        }
+    }
 }
 
 .home_matches_wrapper .home_matches {
