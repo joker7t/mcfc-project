@@ -1,11 +1,24 @@
 import React from 'react';
-import './App.scss';
+import './Resources/css/app.scss';
+
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import Home from './components/home/Home';
+import Header from './components/layouts/Header';
+import Footer from './components/layouts/Footer';
+
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <Router>
+      <Header />
+      <div className="App">
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Redirect from="*" to="/" />
+        </Switch>
+      </div>
+      <Footer />
+    </Router>
   );
 }
 
