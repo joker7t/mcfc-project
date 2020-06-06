@@ -6,24 +6,15 @@ const Stripes = () => {
 
     const stripes = [
         {
-            background: '#98c5e9',
-            left: 120,
-            rotate: 25,
-            top: -260,
+            name: 'stripe-1',
             delay: 0
         },
         {
-            background: '#ffffff',
-            left: 360,
-            rotate: 25,
-            top: -397,
+            name: 'stripe-2',
             delay: 200
         },
         {
-            background: '#98c5e9',
-            left: 600,
-            rotate: 25,
-            top: -498,
+            name: 'stripe-3',
             delay: 400
         }
     ];
@@ -36,9 +27,8 @@ const Stripes = () => {
                 start={{
                     // background: '#ffffff',
                     opacity: 0,
-                    left: 0,
-                    rotate: 0,
-                    top: 0
+                    left: -200,
+                    rotate: 0
                 }}
 
                 enter={{
@@ -46,9 +36,8 @@ const Stripes = () => {
                     //new version, just work with number
                     // background: [stripe.background],
                     opacity: [1],
-                    left: [stripe.left],
-                    rotate: [stripe.rotate],
-                    top: [stripe.top],
+                    left: [0],
+                    rotate: [30],
                     timing: { delay: stripe.delay, duration: 200, ease: easePolyOut },
                     events: {
                         end() {
@@ -62,13 +51,12 @@ const Stripes = () => {
                     // this content must be a function
                     // pass the prop need to be animated to this function
                 }
-                {({ opacity, left, rotate, top }) =>
+                {({ opacity, left, rotate }) =>
                     <div
-                        className="stripe"
+                        className={"stripe " + stripe.name}
                         style={{
-                            background: stripe.background,
                             opacity,
-                            transform: `rotate(${rotate}deg) translate(${left}px,${top}px)`
+                            transform: `rotate(${rotate}deg) translateX(${left}px)`
                         }}
                     ></div>
                 }
@@ -79,7 +67,13 @@ const Stripes = () => {
 
     return (
         <div className='featured_stripes'>
-            {showStripes()}
+            {
+                showStripes()
+            }
+
+
+
+
         </div>
     );
 }
