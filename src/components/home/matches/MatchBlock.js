@@ -2,7 +2,6 @@ import React from 'react';
 import { getTeamIcon } from '../../../utils/util';
 
 const MatchBlock = ({ match }) => {
-    console.log(match);
     return (
         <div className='match_block'>
             <div className='match_date'>

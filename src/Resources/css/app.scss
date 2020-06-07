@@ -523,13 +523,34 @@ footer .footer_discl {
 .home_meetplayers .home_card_wrapper {
     position: relative;
     float: left;
-    width: 630px;
     min-height: 600px;
 }
 
 .home_meetplayers .home_text_wrapper {
-    float: right;
-    width: 390px;
+    position: relative;
+    min-height: 600px;
+    width: 100%;
+
+    .home_text{
+        top: 0;
+        left: 0;
+        font-family: 'Righteous', cursive;
+        position: absolute;
+        background: #0e1731;
+        color: #ffffff;
+        font-size: 100px;
+    }
+
+    .home_meetplayers_button{
+        font-family: 'Righteous', cursive;
+        position: absolute;
+        color: #0e1731;
+        background: #ffffff;
+        font-size: 27px;
+        border: 1px solid #0e1731;
+        top: 100px;
+        padding: 5px;
+    }
 }
 
 /*=============================
@@ -573,11 +594,6 @@ footer .footer_discl {
     font-size: 25px;
     color: #0d1831;
 }
-
-.home_text_wrapper {
-    margin-top: 70px;
-}
-
 
 /*=============================
          PROMOTION
