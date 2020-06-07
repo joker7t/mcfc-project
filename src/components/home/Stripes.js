@@ -39,11 +39,11 @@ const Stripes = () => {
                     left: [0],
                     rotate: [30],
                     timing: { delay: stripe.delay, duration: 200, ease: easePolyOut },
-                    events: {
-                        end() {
-                            console.log('animation home finished')
-                        }
-                    }
+                    // events: {
+                    //     end() {
+                    //         console.log('animation home finished')
+                    //     }
+                    // }
                 }}
             >
 

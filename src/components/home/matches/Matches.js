@@ -1,5 +1,6 @@
 import React from 'react';
 import MatchTag from './MatchTag';
+import Block from './Block';
 
 const Matches = () => {
     return (
@@ -9,6 +10,9 @@ const Matches = () => {
                     name='match_tag all-matches'
                     content='Matches'
                 />
+
+                <Block />
+
                 <MatchTag
                     name='match_tag more-matches'
                     content='See more matches'
