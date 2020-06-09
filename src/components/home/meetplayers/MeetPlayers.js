@@ -14,7 +14,6 @@ const MeetPlayers = () => {
             onReveal={() => {
                 setShow(true);
             }}
-            fraction={0.7}
         >
             <div
                 className='home_meetplayers'

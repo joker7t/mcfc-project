@@ -67,13 +67,7 @@ const Stripes = () => {
 
     return (
         <div className='featured_stripes'>
-            {
-                showStripes()
-            }
-
-
-
-
+            {showStripes()}
         </div>
     );
 }

@@ -18,7 +18,6 @@ const CardPlayer = ({ bck, number, name, lastname }) => {
                     <span>{lastname}</span>
                 </div>
             </div>
-            card
         </div>
     );
 }
