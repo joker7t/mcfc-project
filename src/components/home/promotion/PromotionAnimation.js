@@ -1,6 +1,5 @@
 import React from 'react';
 import Zoom from 'react-reveal/Zoom';
-import Jersey from '../../../Resources/images/jersey.jpg';
 import Grid from '@material-ui/core/Grid';
 
 const PromotionAnimation = () => {
