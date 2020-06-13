@@ -6,6 +6,7 @@ import Home from './components/home/Home';
 import Header from './components/layouts/Header';
 import Footer from './components/layouts/Footer';
 import 'firebase';
+import Login from './components/auth/Login';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path='/' component={Home} />
+          <Route exact path='/sign_in' component={Login} />
           <Redirect from="*" to="/" />
         </Switch>
       </div>
