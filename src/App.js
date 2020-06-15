@@ -8,16 +8,21 @@ import Footer from './components/layouts/Footer';
 import 'firebase';
 import Login from './components/auth/Login';
 import Dashboard from './components/admin/Dashboard';
+import PrivateRoute from './components/authRoutes/PrivateRoute';
+import PublicRoute from './components/authRoutes/PublicRoute';
 
-function App() {
+const App = ({ user }) => {
+
   return (
     <Router>
       <Header />
       <div className="App">
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/sign_in' component={Login} />
-          <Route exact path='/dashboard' component={Dashboard} />
+          <PublicRoute user={user} restricted={false} exact path='/' component={Home} />
+          <PublicRoute user={user} restricted={true} exact path='/sign_in' component={Login} />
+
+          <PrivateRoute user={user} exact path='/dashboard' component={Dashboard} />
+
           <Redirect from="*" to="/" />
         </Switch>
       </div>
