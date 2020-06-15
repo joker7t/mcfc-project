@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
     margin:0;
     padding:0;
@@ -546,6 +550,7 @@ footer .footer_discl {
         background: #0e1731;
         color: #ffffff;
         font-size: 100px;
+        padding: 0px 20px;
 
         &_1{
             top: 80px;
@@ -882,7 +887,7 @@ footer .footer_discl {
 ===============================*/
 
 .admin_container {
-    margin-top: 96px;
+    margin-top: 91px;
     display:flex;
 }
 

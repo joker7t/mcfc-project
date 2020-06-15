@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { firebase } from '../../firebase';
 
-const Login = () => {
+const Login = ({ history }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -20,11 +20,11 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const res = await firebase.auth().signInWithEmailAndPassword(
+            await firebase.auth().signInWithEmailAndPassword(
                 email,
                 password
             );
-            console.log(res);
+            history.push('/dashboard');
         } catch (error) {
             setErrorMessage(error.message);
         }

@@ -7,6 +7,7 @@ import Header from './components/layouts/Header';
 import Footer from './components/layouts/Footer';
 import 'firebase';
 import Login from './components/auth/Login';
+import Dashboard from './components/admin/Dashboard';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/sign_in' component={Login} />
+          <Route exact path='/dashboard' component={Dashboard} />
           <Redirect from="*" to="/" />
         </Switch>
       </div>
