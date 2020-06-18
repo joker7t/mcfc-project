@@ -51,7 +51,7 @@ const AdminMatches = () => {
                         <TableRow key={i}>
                             <TableCell>{match.date}</TableCell>
                             <TableCell>
-                                <Link to={`/admin_matches/edit_match/${match.id}`}>
+                                <Link to={`/admin_matches/edit_match/${match.id}`} className='match_link'>
                                     {match.away}<strong> - </strong>{match.local}
                                 </Link>
                             </TableCell>

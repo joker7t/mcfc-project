@@ -53,6 +53,15 @@ select {
     width: 100%;
 }
 
+input:focus,
+select:focus{
+    border: 2px solid #98c5e9;
+    outline: none;
+}
+
+.match_link:hover{
+    color: #98c5e9;
+}
 
 button {
     background: #0d1831;
@@ -925,7 +934,6 @@ footer .footer_discl {
 .editmatch_dialog_wrapper,
 .editplayers_dialog_wrapper {
     padding: 20px;
-    width: 480px;
 }
 
  
@@ -937,8 +945,7 @@ footer .footer_discl {
     flex-grow: 1;
 }
 
-.select_team_layout input[name=result_local_input],
-.select_team_layout input[name=result_away_input] {
+.select_team_layout .wrapper .right input {
     width: 60px;
     text-align: center;
     background: #98c6e9;
