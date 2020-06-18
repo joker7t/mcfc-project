@@ -1,7 +1,7 @@
 import React from 'react';
 import './Resources/css/app.scss';
 
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import Home from './components/home/Home';
 import Header from './components/layouts/Header';
 import Footer from './components/layouts/Footer';
@@ -10,6 +10,7 @@ import Login from './components/auth/Login';
 import Dashboard from './components/admin/Dashboard';
 import PrivateRoute from './components/authRoutes/PrivateRoute';
 import PublicRoute from './components/authRoutes/PublicRoute';
+import AdminMatches from './components/admin/matches/AdminMatches';
 
 const App = ({ user }) => {
 
@@ -22,6 +23,7 @@ const App = ({ user }) => {
           <PublicRoute user={user} restricted={true} exact path='/sign_in' component={Login} />
 
           <PrivateRoute user={user} exact path='/dashboard' component={Dashboard} />
+          <PrivateRoute user={user} exact path='/admin_matches' component={AdminMatches} />
 
           <Redirect from="*" to="/" />
         </Switch>
