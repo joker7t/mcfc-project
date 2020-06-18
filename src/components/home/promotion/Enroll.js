@@ -11,19 +11,22 @@ const Enroll = () => {
         e.preventDefault();
         setEmail('');
 
-        const snap = await firebasePromotions.orderByChild('email').equalTo(email).once('value');
-        if (snap.val() === null) {
-            const sendData = {
-                email: email
-            };
-            firebasePromotions.push(sendData);
-            setMessage('Congrats');
-        } else {
-            setMessage('Already in database');
+        try {
+            const snap = await firebasePromotions.orderByChild('email').equalTo(email).once('value');
+            if (snap.val() === null) {
+                const sendData = {
+                    email: email
+                };
+                firebasePromotions.push(sendData);
+                setMessage('Congrats');
+            } else {
+                setMessage('Already in database');
+            }
+
+            setTimeout(() => setMessage(''), 2000);
+        } catch (error) {
+            console.log(error);
         }
-
-        setTimeout(() => setMessage(''), 2000);
-
     }
 
     const handleChangeEmail = (e) => {

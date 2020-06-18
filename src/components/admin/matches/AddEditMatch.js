@@ -4,16 +4,17 @@ import { firebaseTeams, firebaseDB, firebaseMatches } from '../../../firebase';
 import { firebaseLooper } from '../../../utils/util';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const AddEditMatch = ({ match }) => {
+const AddEditMatch = ({ match, history }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [formType, setFormType] = useState('Add match');
     const [teams, setTeams] = useState([]);
+    const [message, setMessage] = useState('');
     const [newMatch, setNewMatch] = useState({
-        away: '',
+        away: 'Arsenal',
         awayThmb: '',
         date: '',
-        final: '',
-        local: '',
+        final: 'Yes',
+        local: 'Arsenal',
         localThmb: '',
         referee: '',
         result: '',
@@ -24,16 +25,20 @@ const AddEditMatch = ({ match }) => {
 
     useEffect(() => {
         const load = async () => {
-            const loadedTeams = await firebaseTeams.once('value');
-            setTeams(firebaseLooper(loadedTeams));
+            try {
+                const loadedTeams = await firebaseTeams.once('value');
+                setTeams(firebaseLooper(loadedTeams));
 
-            const { id } = match.params;
-            if (id) {
-                setFormType('Edit match');
-                const loadedMatch = await firebaseDB.ref(`matches/${id}`).once('value');
-                setNewMatch(loadedMatch.val());
+                const { id } = match.params;
+                if (id) {
+                    setFormType('Edit match');
+                    const loadedMatch = await firebaseDB.ref(`matches/${id}`).once('value');
+                    setNewMatch(loadedMatch.val());
+                }
+                setIsLoading(false);
+            } catch (error) {
+                console.log(error);
             }
-            setIsLoading(false);
         }
 
         load();
@@ -45,14 +50,23 @@ const AddEditMatch = ({ match }) => {
         return teams.map((team, i) => <option value={team.shortName} key={i}>{team.name}</option>);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const { id } = match.params;
-        if (id) {
+        try {
+            const { id } = match.params;
+            if (id) {
+                await firebaseDB.ref(`matches/${id}`).update(newMatch);
+                setMessage('Update successfully');
 
-        } else {
+                setTimeout(() => setMessage(''), 2000);
+            } else {
+                await firebaseMatches.push(newMatch);
 
+                history.push('/admin_matches');
+            }
+        } catch (error) {
+            console.log(e);
         }
     }
 
@@ -169,6 +183,7 @@ const AddEditMatch = ({ match }) => {
                         </div>
 
                         <div className='admin_submit'>
+                            {!message ? null : <div className='success_label'>{message}</div>}
                             <button type='submit'>{formType}</button>
                         </div>
 
