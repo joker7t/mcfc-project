@@ -3,6 +3,8 @@ import AdminLayout from '../AdminLayout';
 import { firebaseDB, firebasePlayers } from '../../../firebase';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
+import Fileuploader from '../../ui/Fileuploader';
+
 const AddEditPlayer = ({ match, history }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [formType, setFormType] = useState('Add player');
@@ -65,6 +67,20 @@ const AddEditPlayer = ({ match, history }) => {
         });
     };
 
+    const resetImage = () => {
+        setNewPlayer({
+            ...newPlayer,
+            'image': ''
+        });
+    }
+
+    const storeImage = (filename) => {
+        setNewPlayer({
+            ...newPlayer,
+            'image': filename
+        });
+    }
+
     return (
         <AdminLayout>
             {isLoading ?
@@ -78,10 +94,14 @@ const AddEditPlayer = ({ match, history }) => {
 
                     <form onSubmit={handleSubmit}>
                         <div>
-                            <div className='label_inputs'>
-                                Player image
-                            </div>
-                            <input type='file' required name='image' />
+                            <Fileuploader
+                                dir='players'
+                                tag='Player image'
+                                defaultImg={newPlayer.image}
+                                defaultImgName={newPlayer.image}
+                                resetImage={resetImage}
+                                storeImage={storeImage}
+                            />
                         </div>
 
                         <div>

@@ -129,13 +129,13 @@ button {
 }
 
 .image_upload_container .remove {
-    top: 0;
-    position: absolute;
-    right: 0;
+    display: inline-block;
+    vertical-align: top;
     background: #98c6e9;
     color: #ffffff;
     border: 1px solid white;
     padding: 10px;
+    cursor: pointer;
 }
 
 .not_found_container {
