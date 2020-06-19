@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 import { CityLogo } from '../ui/icons';
 
-const Header = () => {
+const Header = ({ user }) => {
     return (
         <AppBar
             position='fixed'
@@ -31,17 +31,31 @@ const Header = () => {
                     </div>
                 </div>
 
-                <Link to='/the-team'>
+                <Link to='/the_team'>
                     <Button color='inherit'>
                         The team
                     </Button>
                 </Link>
 
-                <Link to='/the-matches'>
+                <Link to='/the_matches'>
                     <Button color='inherit'>
                         Matches
                     </Button>
                 </Link>
+
+                {user ?
+                    <Link to='/dashboard'>
+                        <Button color='inherit'>
+                            dashboard
+                        </Button>
+                    </Link>
+                    :
+                    <Link to='/sign_in'>
+                        <Button color='inherit'>
+                            Login
+                        </Button>
+                    </Link>
+                }
 
             </Toolbar>
         </AppBar>

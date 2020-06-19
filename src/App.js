@@ -14,15 +14,17 @@ import AdminMatches from './components/admin/matches/AdminMatches';
 import AddEditMatch from './components/admin/matches/AddEditMatch';
 import AdminPlayers from './components/admin/players/AdminPlayers';
 import AddEditPlayer from './components/admin/players/AddEditPlayer';
+import TheTeam from './components/theteam/TheTeam';
 
 const App = ({ user }) => {
 
   return (
     <Router>
-      <Header />
+      <Header user={user} />
       <div className="App">
         <Switch>
           <PublicRoute user={user} restricted={false} exact path='/' component={Home} />
+          <PublicRoute user={user} restricted={false} exact path='/the_team' component={TheTeam} />
           <PublicRoute user={user} restricted={true} exact path='/sign_in' component={Login} />
 
           <PrivateRoute user={user} exact path='/dashboard' component={Dashboard} />

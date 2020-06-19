@@ -671,7 +671,7 @@ footer .footer_discl {
 .player_card_wrapper {
     background: #ffffff;
     border: 1px solid #ececec;
-    width: 300;
+    width: 300px;
     padding: 10px 10px 20px 10px;
     font-family: 'Righteous';
     margin-left: 80px;
@@ -679,7 +679,17 @@ footer .footer_discl {
     position: absolute;
 }
 
-.player_card_wrapper .player_card_thmb {
+.player_card_wrapper-2 {
+    background: #ffffff;
+    border: 1px solid #ececec;
+    width: 300px;
+    padding: 10px 10px 20px 10px;
+    font-family: 'Righteous';
+    margin: 10px 20px;
+}
+
+.player_card_wrapper .player_card_thmb,
+.player_card_wrapper-2 .player_card_thmb {
     border: 1px solid #eeeeee;
     width:100%;
     height:250px;
@@ -688,22 +698,28 @@ footer .footer_discl {
     background-size: contain !important;
 }
 
-.player_card_wrapper .player_card_nfo {
+.player_card_wrapper .player_card_nfo,
+.player_card_wrapper-2 .player_card_nfo {
     position: relative;
 }
-.player_card_wrapper .player_card_number {
+
+.player_card_wrapper .player_card_number,
+.player_card_wrapper-2 .player_card_number
+ {
     color: #d6ecfe;
     font-size: 185px;
     text-align: right;
     line-height: 160px;
 }
 
-.player_card_wrapper .player_card_name {
+.player_card_wrapper .player_card_name,
+.player_card_wrapper-2 .player_card_name {
     position: absolute;
     bottom: 0px;
 }
 
-.player_card_wrapper .player_card_name span { 
+.player_card_wrapper .player_card_name span,
+.player_card_wrapper-2 .player_card_name span { 
     display: block;
     font-size: 25px;
     color: #0d1831;
@@ -711,23 +727,44 @@ footer .footer_discl {
 
 @media (max-width: 767px) {
     .player_card_wrapper{
-        width: 120px;
+        width: 140px;
+        height: 200px;
+        margin-left: 20px;
+    }
+
+    .player_card_wrapper-2{
+        width: 140px;
         height: 180px;
         margin-left: 20px;
     }
 
-    .player_card_wrapper .player_card_thmb {
+    .player_card_wrapper .player_card_thmb,
+    .player_card_wrapper-2 .player_card_thmb {
         width:100%;
         height:80px;
     }
     
-    .player_card_wrapper .player_card_nfo {
+    .player_card_wrapper .player_card_nfo,
+    .player_card_wrapper-2 .player_card_nfo {
         position: relative;
     }
-    .player_card_wrapper .player_card_number {
+
+    .player_card_wrapper .player_card_number{
         font-size: 100px;
         text-align: right;
         line-height: 110px;
+    }
+
+    .player_card_wrapper-2 .player_card_number {
+        font-size: 85px;
+        text-align: right;
+        line-height: 85px;
+    }
+
+    .player_card_wrapper-2 .player_card_name span { 
+        display: block;
+        font-size: 22px;
+        color: #0d1831;
     }
 }
 
@@ -966,10 +1003,12 @@ footer .footer_discl {
 ===============================*/
 
 .the_team_container {
-    margin-top: 96px;
+    margin-top: 90px;
     padding: 20px;
     background-size: 5px 5px !important;
     min-height:100vh;
+    width: 100%;
+    overflow-x: scroll;
 }
 
 .team_category_wrapper .title {
