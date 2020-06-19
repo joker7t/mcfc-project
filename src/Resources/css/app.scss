@@ -59,7 +59,8 @@ select:focus{
     outline: none;
 }
 
-.match_link:hover{
+.match_link:hover,
+.player_link:hover{
     color: #98c5e9;
 }
 
@@ -898,6 +899,7 @@ footer .footer_discl {
 .admin_container {
     margin-top: 91px;
     display:flex;
+    overflow-x: scroll;
 }
 
 .admin_container .admin_left_nav {
