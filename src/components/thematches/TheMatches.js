@@ -22,6 +22,7 @@ const TheMatches = () => {
                 const loadedMatchesArr = reverseArray(firebaseLooper(loadedMatches));
 
                 setMatches(loadedMatchesArr);
+                setFilterMatches(loadedMatchesArr);
                 setIsLoading(false);
             } catch (error) {
                 console.log(error);

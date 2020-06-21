@@ -496,6 +496,7 @@ footer .footer_discl {
      display: flex;
      border-bottom: 1px solid #01285e;
      background: #dff1ff;
+     min-height: calc(100vh - 90px);
 }
 .match_filters .tag {
     font-weight: 300;
