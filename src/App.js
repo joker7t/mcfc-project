@@ -15,6 +15,7 @@ import AddEditMatch from './components/admin/matches/AddEditMatch';
 import AdminPlayers from './components/admin/players/AdminPlayers';
 import AddEditPlayer from './components/admin/players/AddEditPlayer';
 import TheTeam from './components/theteam/TheTeam';
+import TheMatches from './components/thematches/TheMatches';
 
 const App = ({ user }) => {
 
@@ -25,6 +26,7 @@ const App = ({ user }) => {
         <Switch>
           <PublicRoute user={user} restricted={false} exact path='/' component={Home} />
           <PublicRoute user={user} restricted={false} exact path='/the_team' component={TheTeam} />
+          <PublicRoute user={user} restricted={false} exact path='/the_matches' component={TheMatches} />
           <PublicRoute user={user} restricted={true} exact path='/sign_in' component={Login} />
 
           <PrivateRoute user={user} exact path='/dashboard' component={Dashboard} />
