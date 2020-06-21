@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { firebase } from '../../firebase';
 
 const Login = ({ history }) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('toan@gmail.com');
+    const [password, setPassword] = useState('123456');
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleChangeEmail = (e) => {
