@@ -12,8 +12,6 @@ const TheMatches = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [matches, setMatches] = useState([]);
     const [filterMatches, setFilterMatches] = useState([]);
-    const [playerFilter, setPlayerFilter] = useState(false);
-    const [resultFilter, setResultFilter] = useState(false);
 
     useEffect(() => {
         const load = async () => {
@@ -35,6 +33,19 @@ const TheMatches = () => {
         //eslint-disable-next-line
     }, []);
 
+    const handleFilterAll = () => {
+        setFilterMatches(...[matches]);
+    }
+
+    const handleFilterPlayed = () => {
+        console.log(...matches.filter(match => match.final === 'Yes'))
+        setFilterMatches(...[matches.filter(match => match.final === 'Yes')]);
+    }
+
+    const handleFilterNotPlayed = () => {
+        setFilterMatches(...[matches.filter(match => match.final === 'No')]);
+    }
+
     return (
         <div className='the_matches_container'>
             {isLoading ?
@@ -45,9 +56,25 @@ const TheMatches = () => {
                 <div className='the_matches_wrapper'>
                     <div className='left'>
                         <div className='match_filters'>
-                            <MatchesList filterMatches={filterMatches} />
-                        </div>
+                            <div className='match_filters_box'>
+                                <div className='tag'>
+                                    Show Match
+                                </div>
+                                <div className='cont'>
+                                    <div className={`option`} onClick={handleFilterAll}>
+                                        All
+                                    </div>
+                                    <div className={`option`} onClick={handleFilterPlayed}>
+                                        Played
+                                    </div>
+                                    <div className={`option`} onClick={handleFilterNotPlayed}>
+                                        Not played
+                                    </div>
+                                </div>
+                            </div>
 
+                        </div>
+                        <MatchesList filterMatches={filterMatches} />
                     </div>
 
                     <div className='right'>

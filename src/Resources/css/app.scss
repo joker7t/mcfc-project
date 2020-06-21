@@ -496,7 +496,6 @@ footer .footer_discl {
      display: flex;
      border-bottom: 1px solid #01285e;
      background: #dff1ff;
-     min-height: calc(100vh - 90px);
 }
 .match_filters .tag {
     font-weight: 300;
@@ -510,11 +509,12 @@ footer .footer_discl {
     font-size: 13px;
     margin-right: 5px;
     cursor: pointer;
-}
 
-.match_filters .option.active {
-    background: #62a2d3;
-    color: #fff;
+    &:hover,
+    &:active{
+        background: #62a2d3;
+        color: #fff;
+    }
 }
 
 .match_filters_box {

@@ -35,7 +35,7 @@ const MatchesList = ({ filterMatches }) => {
             })}
         >
             {nodes => (
-                <div style={{ width: '100%' }}>
+                <div>
                     {nodes.map(({ key, data, state: { x, opacity } }) =>
                         <div
                             key={key}
@@ -73,7 +73,7 @@ const MatchesList = ({ filterMatches }) => {
     )
 
     return (
-        <div style={{ width: '100%' }}>
+        <div>
             {showMatches()}
         </div>
     );
