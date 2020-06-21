@@ -448,14 +448,36 @@ footer .footer_discl {
     border-bottom: 2px solid #98c6e9;
     padding: 20px;
     box-sizing: border-box;
-    height: 143px;
-    clear: both;
+    display: flex;
+
+    .block_wraper {
+        display: inline-block;
+        margin-right: 50px;
+        flex: 1;
+    }
+    
+    .block_wraper.nfo {
+        border-left: 1px solid #98c6e9;
+        height: 102px;
+        padding-left: 10px;
+        font-weight: 300;
+        color: #5e5e5e;
+        flex-grow: 2;
+    }
 }
 
-.match_box_big .block_wraper {
-    display: inline-block;
-    margin-right: 50px;
-    float: left;
+@media (max-width: 991px) {
+    .match_box_big {
+        display: block;
+    
+        .block_wraper {
+            display: block;
+        }
+        
+        .block_wraper.nfo {
+            display: block;
+        }
+    }
 }
 
 .match_box_big .block {
@@ -478,14 +500,6 @@ footer .footer_discl {
 
 .match_box_big .block .result {
     font-weight: 500;
-}
-
-.block_wraper.nfo {
-    border-left: 1px solid #98c6e9;
-    height: 102px;
-    padding-left: 10px;
-    font-weight: 300;
-    color: #5e5e5e;
 }
 
 .block_wraper.nfo div {
@@ -660,6 +674,14 @@ footer .footer_discl {
             top: 440px;
             left: 20px;
             font-size: 40px;
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .home_meetplayers .home_text_wrapper {
+        .home_text{
+            font-size: 80px;
         }
     }
 }
@@ -1018,6 +1040,12 @@ footer .footer_discl {
     margin: 30px 0px;
     font-family: 'Righteous', cursive;
     color: #d5ebfe;
+}
+
+@media (max-width: 575px) {
+    .team_category_wrapper .title {
+        font-size: 80px;
+    }
 }
 
 .team_category_wrapper .team_cards {
